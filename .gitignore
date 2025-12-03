@@ -1,31 +1,43 @@
 # Python
-__pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
-venv/
+__pycache__/
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Environment
 .env
 .venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 .DS_Store
 
-# Project
-*.log
-*.sqlite3
-db.sqlite3
-media/
-static/
-node_modules/
-dist/
-build/
-*.egg-info/
+# Testing
 .coverage
-htmlcov/
 .pytest_cache/
+htmlcov/
+
+# Security
+*.pem
+*.key
+secrets.json

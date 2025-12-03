@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "clara-healthcare-backend"
+version = "1.0.0"
+description = "Healthcare claims processing system built with Django REST Framework for Clara"
+authors = ["Christopher Campbell"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "4.2.7"
+djangorestframework = "3.14.0"
+drf-spectacular = "0.26.5"
+psycopg2-binary = "2.9.10"
+redis = "5.0.1"
+celery = "5.3.4"
+django-cors-headers = "4.3.0"
+python-decouple = "3.8"
+gunicorn = "21.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "7.4.3"
+pytest-django = "4.7.0"
+pytest-cov = "^4.1"
+black = "^23.11"
+isort = "^5.12"
+flake8 = "^6.1"
+mypy = "^1.7"
+django-stubs = "^4.2"
+djangorestframework-stubs = "^3.14"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip_glob = ["*/migrations/*"]
+
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_vars = true
+warn_redundant_casts = true
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "healthcare.settings"
+python_files = ["test_*.py", "*_test.py", "tests.py"]
+addopts = "-v --tb=short --strict-markers"
